@@ -26,13 +26,17 @@ prevButton.addEventListener('click', () => {
   showSlide();
 });
 
-nextButton.addEventListener('click', () => {
+function next() {
   if (currentIndex < images.length - 1) {
     currentIndex++;
   } else {
     currentIndex = 0;
   }
   showSlide();
+}
+
+nextButton.addEventListener('click', () => {
+  next();
 });
 
 dots.forEach((dot, i) => {
@@ -41,3 +45,7 @@ dots.forEach((dot, i) => {
     showSlide();
   });
 });
+
+setInterval(() => {
+  next();
+}, 2000);
